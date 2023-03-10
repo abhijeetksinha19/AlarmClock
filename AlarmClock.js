@@ -1,8 +1,11 @@
 const display = document.getElementById('clock');
+const list = document.querySelector('#list');
 const music = new Audio('./oversimplified-alarm-clock-113180.mp3');
 music.loop = true;
 let alarm = null;
-let alarmtimeOver = null;
+let alarmTimeover = null;
+
+const alarmArray = [];
                 //FOR TIME DISPLAY
 function updateTime(){
     const date = new Date();
@@ -11,7 +14,14 @@ function updateTime(){
     const minutes = formatTime(date.getMinutes());
     const seconds = formatTime(date.getSeconds());
 
-    display .innerText= `${hour}:${minutes}:${seconds}`
+    display.innerText= `${hour}:${minutes}:${seconds}`;
+
+    const ringTime = `${hour}:${minutes}:${seconds}`;
+
+    if(alarmArray.includes(ringTime)){
+        music.play();
+        alert(`It's ${now} Time`)
+    }
 }
 
 function formatTime(time){
@@ -31,7 +41,7 @@ function Alarm(){
         const alarm_time = new Date(alarm);
         if(alarm_time>present){
             const timeOver = alarm_time.getTime()-present.getTime;
-            alarmtimeOver = setTimeout(()=>music.play(),timeOver);
+            alarmTimeout = setTimeout(()=>music.play(),timeOver);
             alert('Your Alarm Has Been Set');
         }
     }
