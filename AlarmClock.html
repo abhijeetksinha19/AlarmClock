@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+							<!-- LINKING CSS FILE -->
+	<link rel="stylesheet" type="text/css" href="AlarmClock.css">
+
+	<title>AlarmClock</title>
+</head>
+<body>
+	<section class="body">
+							<!-- SETTING STYLE FOR CLOCK-->
+		<div id="clock"></div>
+								<!--SETTING ALARM -->
+		<input onchange="AlarmTime(this.value)" name="alarm" type="time">
+								<!-- BUTTONS -->
+		<div class="buttons">
+							<!-- BUTTON TO ADD ALARM -->
+			<button onclick="Alarm()" class="button add">Add Alarm</button>
+							<!-- BUTTON TO DELETE ALARM -->
+			<button onclick="Cancel()" class="button delete">Delete Alarm</button>
+		</div>
+		<div class="list">
+							<!-- LISTING ALL ALARM -->
+			<ul type="circle" class="list">
+				<li></li>
+			</ul>
+		</div>
+	</section>
+							<!-- LINKING JAVASCRIPT FILE -->
+	<script type="text/javascript" src="AlarmClock.js"></script>
+
+</body>
+</html>
